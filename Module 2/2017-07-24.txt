@@ -10,7 +10,7 @@
    10  kill -help
    11  kill -9 5404
    12  ps
-   13  logout //its wierd that it remebers thes commands but not other ones i've done
+   13  logout //its wierd that it remebers thes commands but not other ones i've done. wonder if it is because i logged out that time
    14  pip install twarc
    15  sudo pip install twarc
    16  twarc configure
@@ -44,7 +44,7 @@
    44  mkdir ocr-test
    45  cd ocr*
    46  sudo apt-get install tesseract-ocr
-   47  sudo apt-get install imagemagick
+   47  sudo apt-get install imagemagick //I've used this software before!
    48  wget -r -np -nd -w 1 --limit-rate 50k -A "*July 4 1957*".pdf http://collections.banq.qc.ca:8008/jrn03/equity/src/
    49  ls
    50  cd ..
@@ -55,7 +55,7 @@
    55  ls
    56  cd ocr*
    57  wget -r -np -nd -w 1 --limit-rate 50k -A "*1957-07-04".pdf http://collections.banq.qc.ca:8008/jrn03/equity/src/1954/
-   58  wget -r -np -nd -w 1 --limit-rate 50k -A "*1957-07-04".pdf http://collections.banq.qc.ca:8008/jrn03/equity/src/1957/
+   58  wget -r -np -nd -w 1 --limit-rate 50k -A "*1957-07-04".pdf http://collections.banq.qc.ca:8008/jrn03/equity/src/1957/ //opps typo!
    59  ls
    60  pdkt 83471_1957-07-04.pdf burst
    61  pdtk 83471_1957-07-04.pdf burst
@@ -67,7 +67,7 @@
    67  sudo apt-get install pdftk
    68  pdftk 83471_1957-07-04.pdf burst
    69  ls
-   70  convert -density 300 pg_0001.pdf -depth 8 -strip -background white -alpha off file.tiff
+   70  convert -density 300 pg_0001.pdf -depth 8 -strip -background white -alpha off file.tiff  
    71  tesseract file.tiff output.txt
    72  wget -r -np -nd -w 1 --limit-rate 50k -A "*1957-07-04".txt http://collections.banq.qc.ca:8008/jrn03/equity/src/1957/  // deffinatly would have to chage the settings as it had almost zero text in mine and the little it did was wrong
    73  history > 2017-07-24.txt
