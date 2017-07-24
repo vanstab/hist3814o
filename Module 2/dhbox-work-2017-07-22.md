@@ -4,7 +4,7 @@
     4  clear
     5  logout
     6  ps
-    7  kill /p 5404 
+    7  kill /p 5404 //kept on hitting ctrl-z and had to kill the process opps....
     8  kill /pid 5404 
     9  kill -h
    10  kill -help
@@ -39,7 +39,7 @@
    39  wget -r --no-parent -1  http://activehistory.ca/papers/
    40  wget -r --no-parent -l 1  http://activehistory.ca/papers/
    41  wget -r --no-parent -l 1 -w 2  http://activehistory.ca/papers/ 
-   42  wget -r --no-parent -l 1 -w 2 --limit-rate=20k  http://activehistory.ca/papers/ 
+   42  wget -r --no-parent -l 1 -w 2 --limit-rate=20k  http://activehistory.ca/papers/ //trying the different things suggested step by step and cancaling them
    43  ls
    44  cd activ*
    45  ls
@@ -60,9 +60,9 @@
    60  wget http://collections.banq.qc.ca:8008/jrn03/equity/src/ -A "*188*".txt -nc -r --no-parent -nd âw 2 --limit-rate=20k
    61  la
    62  ls
-   63  wget http://collections.banq.qc.ca:8008/jrn03/equity/src/1884/ -A .txt -r --no-parent -nd âw 2 --limit-rate=20k
+   63  wget http://collections.banq.qc.ca:8008/jrn03/equity/src/1884/ -A .txt -r --no-parent -nd âw 2 --limit-rate=20k //unreconised chars.... quit the command and fixed the issues
    64  ls
-   65  rm *.txt
+   65  rm *.txt  //cleaning out the file
    66  ls
    67  clear
    68  wget http://collections.banq.qc.ca:8008/jrn03/equity/src/ -A "*188*".txt -r --no-parent -nd w 2 --limit-rate=20k
@@ -92,7 +92,7 @@
    92  nano faillog.md
    93  ps
    94  kill -9 5575
-   95  kill -9 5576
+   95  kill -9 5576  /again with that ctrl-z....
    96  ps
    97  nano faillog.md
    98  ls
