@@ -1,0 +1,73 @@
+    1  nano faillog.md
+    2  lear
+    3  nano faillog.md
+    4  clear
+    5  logout
+    6  ps
+    7  kill /p 5404 
+    8  kill /pid 5404 
+    9  kill -h
+   10  kill -help
+   11  kill -9 5404
+   12  ps
+   13  logout //its wierd that it remebers thes commands but not other ones i've done
+   14  pip install twarc
+   15  sudo pip install twarc
+   16  twarc configure
+   17  twarc search hist3814o >search.json
+   18  nano search*
+   19  sudo npm install json2csv --save -g
+   20  json2csv -i search.json -o out.csv
+   21  nano search*
+   22  nano search.json
+   23  clear
+   24  json2csv -i search.json -o out.csv
+   25  nano search.json
+   26  clear
+   27  ls
+   28  python json2csv.py search.json >out.csv 
+   29  nano search*
+   30  delete search.json
+   31  rm search.json
+   32  nano search.json
+   33  json2csv -i search.json -o out.csv  -
+   34  nano out.csv
+   35  rm search.json
+   36  twarc search hist3814o >search.json
+   37  nano seach*
+   38  ls
+   39  nano search*
+   40  rm search.json
+   41  twarc search #hist3814o >search.json
+   42  twarc search '#hist3814o' >search.json //i played around a bit here to see if i could firgure out the issue that was happening. It looks like twarc was not making a valid json as it failed multiple json validators. I attempted to fix it on my computer manualy which ended up not working also as i probably had the structure wrong
+   43  nano search*
+   44  mkdir ocr-test
+   45  cd ocr*
+   46  sudo apt-get install tesseract-ocr
+   47  sudo apt-get install imagemagick
+   48  wget -r -np -nd -w 1 --limit-rate 50k -A "*July 4 1957*".pdf http://collections.banq.qc.ca:8008/jrn03/equity/src/
+   49  ls
+   50  cd ..
+   51  ls
+   52  cd equit*
+   53  ls
+   54  cd ..
+   55  ls
+   56  cd ocr*
+   57  wget -r -np -nd -w 1 --limit-rate 50k -A "*1957-07-04".pdf http://collections.banq.qc.ca:8008/jrn03/equity/src/1954/
+   58  wget -r -np -nd -w 1 --limit-rate 50k -A "*1957-07-04".pdf http://collections.banq.qc.ca:8008/jrn03/equity/src/1957/
+   59  ls
+   60  pdkt 83471_1957-07-04.pdf burst
+   61  pdtk 83471_1957-07-04.pdf burst
+   62  pdftk 83471_1957-07-04.pdf burst
+   63  sudo apt-get install pdftk
+   64  pdftk 83471_1957-07-04.pdf burst
+   65  sudo apt-get update pdftk
+   66  sudo apt-get update //had to run update before i could install. Thank you for having that annotation
+   67  sudo apt-get install pdftk
+   68  pdftk 83471_1957-07-04.pdf burst
+   69  ls
+   70  convert -density 300 pg_0001.pdf -depth 8 -strip -background white -alpha off file.tiff
+   71  tesseract file.tiff output.txt
+   72  wget -r -np -nd -w 1 --limit-rate 50k -A "*1957-07-04".txt http://collections.banq.qc.ca:8008/jrn03/equity/src/1957/  // deffinatly would have to chage the settings as it had almost zero text in mine and the little it did was wrong
+   73  history > 2017-07-24.txt
