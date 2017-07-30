@@ -1,1 +1,27 @@
+First time using regex!
+Starting of with (,)( [0-9]{4})(.+) n the Regex tester looking at the references I thought \2 might be what I want to do to replace the above. As \2 back referenced to #2 in the brackets. 
+When I typed it in however nothing was happening in the view for finding the values. It was confusing me as I though as it wasn’t finding the numbers.
+I removed the \2 and still saw nothing highlighted.
+Enter in grep ‘[0-9]{4}’ – this showed me all the numbers I was looking for highlighted
+Then typed in (,)([0-9]{4})(.+) which again turned up nothing
+Copied your text (,)( [0-9]{4})(.+) and it work. This confused me for a couple of seconds and then I realised I was missing a space in mine.
+Added the space and I got the results I was expecting now in the browser tester.
+Added the \2 and saw it place a red dot which I assumed it meant it would replace said text with whatever the red dots value was.
 
+65 sed -r -i.bak '(,)( [0-9]{4})(.+)\2'/g index.txt forgot  the s/
+ 66 sed -r -i.bak 's/(,)( [0-9]{4})(.+)\2'/g index.txt forgot to terminate s/
+ 67 sed -r -i.bak 's/(,)( [0-9]{4})(.+)/\2'/g index.txt worked!
+To replace the ~ was going to run the command s/(~)/\1/g but I realised the would probably replace ~ with ~ as the back reference was the thing I was trying to remove.
+s/(~)/\S/g was the next thing I thought as \S was a character class the represented not whitespace
+71  sed -r -i.bak 's/(~)/\S'/g index.txt nope replaced ~ with a capital S
+76 mv index.txt.bak index.txt  replaced with backup
+77 nano index.txt checked it
+78 sed -r -i.bak 's/(~)/\'/g index.txt  s/ was not terminated, was thinking it need \ before /g to replace ~ with ‘’ 
+79 sed -r -i.bak 's/(~)/'/g index.txt checked it and it worked
+82  sed -r -i.bak 's/( to)/,/g' index.txt figured after the lessons learned with ~ and whitespaces counting this would work and it did!
+
+85 grep '.+,.+,.+,' index.txt 
+86 sed '.+,.+,.+,' index.txt 
+87 nano index.txt 
+88 grep .+,.+,.+, index.txt 
+89 grep -E .+,.+,.+, index.txt  Though I was going crazy so scrolled to see what I should type, didn’t realise this need to use extended regex to work
