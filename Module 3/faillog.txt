@@ -25,3 +25,21 @@ s/(~)/\S/g was the next thing I thought as \S was a character class the represen
 87 nano index.txt 
 88 grep .+,.+,.+, index.txt 
 89 grep -E .+,.+,.+, index.txt  Though I was going crazy so scrolled to see what I should type, didn’t realise this need to use extended regex to work
+
+
+Cleaning up the data
+
+I probably should of looked up something to tell me the line # when running the grep command to find the extra comma's
+
+Cleaning up senders
+This is really cool but you have to be careful playing around with the values in clusters I noticed you have to read through them just in case it groups something wrong
+but many would be very close.
+Also tried removing the 2 rows as they were not letters, however the first time I removed them from the cluster view not the actual table.
+Found the menu that removed similar, so just made sure to have the rows flagged and removed them
+For the recipient, I found it more difficult to clean up the data as a lot were similar but stated people who had different names like secretary of state. Does it matter who that person is? I don't know so i left it.
+Cleaned up the date a bit but that is trickier i find as February 11 is not February 1, but it also on a side note could of been a miss read value
+Cleaned up the leading and traing whitespaces for all rows
+Other Thoughts:
+This is a really cool tool and I don't know why its not used more. I've personal worked on data so many times where this tool would of saved me hours for data clean up. It was never
+mentioned in classes like databases and I think that itself is a mistake. Thank you for including this in the course and i will defiantly be using it again!
+Also regex drove me a little nuts, I had to take a break as it was not doing what I expected :p Not the style I am used to for sure, but there "cheat sheet" and manual help a ton
