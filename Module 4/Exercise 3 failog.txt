@@ -31,11 +31,11 @@ mallet.top.words(topic.model, topic.words[7,])
 topic.docs <- t(doc.topics)
 topic.docs <- topic.docs / rowSums(topic.docs)
 write.csv(topic.docs, "topics-docs.csv" )
-topics.labels <- rep("", num.topics)  //so I was a little lost on how the topic modleing work but it was facinating to say the least seeing the results
+topics.labels <- rep("", num.topics)  //so I was a little lost on how the topic modleing work but it was facinating to say the least seeing the results, i Think I want to work with this more to get a better understanding as it seems very interesting
 for (topic in 1:num.topics) topics.labels[topic] <- paste(mallet.top.words(topic.model, topic.words[topic,], num.top.words=5)$words, collapse=" ")
 topics.labels
 write.csv(topics.labels, "topics-labels.csv")
-plot(hclust(dist(topic.words)), labels=topics.labels) //this was interesting seeing the graphic on how the words we linked
+plot(hclust(dist(topic.words)), labels=topics.labels) //this was interesting seeing the graphic on how the words we linked, a lot of outliers I noticed on the plot that were not connected to anything
 topic_docs <- data.frame(topic.docs)
 names(topic_docs) <- documents$article_id
 library(cluster)
