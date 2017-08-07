@@ -1,0 +1,11 @@
+   63  sudo apt-get install RCurl //just check to see if the librarys exsisted
+   64  sudo apt-get install curl this worked but did not do what I was hoping
+   65  sudo apt-install curl curl-devel //found this on page people said it worked, I didn't...
+   66  sudo apt-get curl-config //was hopeful :p
+   67  $ sudo apt-get install libcurll4-openssl-dev //typo..
+   68  sudo apt-get install libcurll4-openssl-dev //typo..
+   69  sudo apt-get install libcurl-openssl-dev //did i mention i don't like typos
+   71  sudo apt-get update made sure everything was upto date as i didn't realise typos above
+   72  sudo apt-get install libcurl-openssl-dev //typo..
+   75  sudo apt-get install libcurl4-openssl-dev  //hey look lurned how to spell :p
+   76  history > Aug6.txt
