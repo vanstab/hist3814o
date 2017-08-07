@@ -1,0 +1,18 @@
+nodes <- read.csv("texasnodes.csv", header=T, as.is=T)
+links <- read.csv("texaslinks.csv", header=T, as.is=T)
+head(nodes)
+head(links)
+nrow(nodes); length(unique(nodes$id))
+nrow(links); nrow(unique(links[,c("source", "target")])) 
+links <- aggregate(links[,3], links[,-3], sum)
+links <- links[order(links$from, links$to),]  //I think I under this to be the first row is the lett is from and the seccond is who it is to, and the last row is the sum of letters
+colnames(links)[3] <- "weight"
+rownames(links) <- NULL
+head(links)
+net <- graph_from_data_frame(d=links, vertices=nodes, directed=T) //function not found
+library(igraph) //check if library was unloaded
+net <- graph_from_data_frame(d=links, vertices=nodes, directed=T)
+net
+library('igraph') //tired again, its found igraph bu the function is miss? the error did not give me more than that
+net <- graph_from_data_frame(d=links, vertices=nodes, directed=T)  //for some reason this function is not found, at this point I really giving up as I lost the mental foritude with going throught what and why this is not working, starting to feel like my honours project for errors :p
+savehistory("~/cmdshist.Rhistory")
