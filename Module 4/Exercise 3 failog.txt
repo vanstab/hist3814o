@@ -1,33 +1,14 @@
 install.packages("mallet")
 library("mallet")
 install.packages('RCurl')  /had issues installing files had to google what to do which took some time but hey it worked in the end :D
-library(RCurl)
-install.packages("RCurl")
-library(RCurl)
-x <- getURL("https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv", .opts = list(ssl.verifypeer = FALSE))
-install.packages('RCurl')
-library(RCurl)
-library("mallet")
-x <- getURL("https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv", .opts = list(ssl.verifypeer = FALSE))
-library("mallet")
-library(RCurl)
-x <- getURL("https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv", .opts = list(ssl.verifypeer = FALSE))
-library("rstudio", lib.loc="/home/benvanstarkenburg/R/x86_64-pc-linux-gnu-library/3.2")
-sudo apt-get install RCurl
-install.packages("RCurl")
-library(RCurl)
-x <- getURL("https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv", .opts = list(ssl.verifypeer = FALSE))
-library("tools", lib.loc="/usr/lib/R/library")
-library("openssl", lib.loc="/home/benvanstarkenburg/R/x86_64-pc-linux-gnu-library/3.2")
-library("rstudioapi", lib.loc="/home/benvanstarkenburg/R/x86_64-pc-linux-gnu-library/3.2")
-library("RCurl")
+//just removed some repeat lines as I was testing different things to see if it worked
 x <- getURL("https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv", .opts = list(ssl.verifypeer = FALSE))
 documents <- read.csv(text = x, col.names=c("Article_ID", "Newspaper Title", "Newspaper City", "Newspaper Province", "Newspaper Country", "Year", "Month", "Day", "Article Type", "Text", "Keywords"), colClasses=rep("character", 3), sep=",", quote="")
 counts <- table(documents$Newspaper.City)
 savehistory("~/RstudioHisttemp.txt")
 barplot(counts, main="Cities", xlab="Number of Articles")
 years <- table(documents$Year)
-barplot(years, main="Publication Year", xlab="Year", ylab="Number of Articles")
+barplot(years, main="Publication Year", xlab="Year", ylab="Number of Articles")  //this suprised me on how quick it was
 mallet.instances <- mallet.import(documents$Article_ID, documents$Text, "en.txt", token.regexp = "\\p{L}[\\p{L}\\p{P}]+\\p{L}")
 num.topics <- 20
 topic.model <- MalletLDA(num.topics)
@@ -50,11 +31,11 @@ mallet.top.words(topic.model, topic.words[7,])
 topic.docs <- t(doc.topics)
 topic.docs <- topic.docs / rowSums(topic.docs)
 write.csv(topic.docs, "topics-docs.csv" )
-topics.labels <- rep("", num.topics)
+topics.labels <- rep("", num.topics)  //so I was a little lost on how the topic modleing work but it was facinating to say the least seeing the results
 for (topic in 1:num.topics) topics.labels[topic] <- paste(mallet.top.words(topic.model, topic.words[topic,], num.top.words=5)$words, collapse=" ")
 topics.labels
 write.csv(topics.labels, "topics-labels.csv")
-plot(hclust(dist(topic.words)), labels=topics.labels) //this was also supper interesting, I was getting errors when running the commands but I'm not entierely sure as to why. It still worked....
+plot(hclust(dist(topic.words)), labels=topics.labels) //this was interesting seeing the graphic on how the words we linked
 topic_docs <- data.frame(topic.docs)
 names(topic_docs) <- documents$article_id
 library(cluster)
@@ -67,7 +48,7 @@ topic_docs <- data.frame(topic.docs)
 names(topic_docs) <- documents$article_id
 topic_df_dist <- as.matrix(daisy(t(topic_docs), metric = "euclidean", stand = TRUE))
 topic_df_dist[ sweep(topic_df_dist, 1, (apply(topic_df_dist,1,min) + apply(topic_df_dist,1,sd) )) > 0 ] <- 0
-g <- as.undirected(graph.adjacency(topic_df_dist))
+g <- as.undirected(graph.adjacency(topic_df_dist)) //this was also supper interesting, I was getting errors when running the commands but I'm not entierely sure as to why. It still worked....
 layout1 <- layout.fruchterman.reingold(g, niter=100)
 plot(g, layout=layout1, edge.curved = TRUE, vertex.size = 1, vertex.color= "grey", edge.arrow.size = 0, vertex.label.dist=0.5, vertex.label = NA)
 write.graph(g, file="cnd.graphml", format="graphml")
