@@ -1,0 +1,7 @@
+mddir Equity
+
+
+
+
+
+./script.sh
