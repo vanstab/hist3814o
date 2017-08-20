@@ -1,0 +1,35 @@
+./script.sh
+sudo find *.txt -type f -exec sed -r -i.bak "s/(.+\b(Canada|England|Britan|France|Germany|Holland|USA|United States|Italy|Poland|Spain|Russia|Soviet Union|Japan|Korea)\b.+)/~\1/ig" {} \;
+grep '~' HistoryFiles/*.txt > importantText.txt
+sed -r -i.bak 's/~//gi' impo*.txt
+sed -r -i.bak 's/HistoryFiles\/83471\_([0-9]{4})\-([0-9]{2})\-([0-9]{2}).txt\:/\1\: /gi' import*.txt
+   ------------------seperated by country found in line---------------------------------
+   13  grep -i 'Korea' im*txt > korea.txt
+   14  grep -i 'Canada' im*txt > Canada.txt
+   15  grep -E -i 'United.States' im*txt > USA.txt
+   16  grep -E -i 'USA' im*txt > USA.txt
+   17  grep -i 'Holland' im*txt > Holland.txt
+   18  grep -i 'Germany' im*txt > Germany.txt
+   19  grep -i 'England' im*txt > England.txt
+   20  grep -i 'France' im*txt > France.txt
+   21  grep -i 'Britan' im*txt > England.txt
+   22  grep -i 'Japan' im*txt > Japan.txt
+
+
+------------RStudio-------------- Run for each country
+install.packages("mallet")
+library("mallet")
+documents <- mallet.read.dir("~/COUNTRY")
+mallet.instances <- mallet.import(documents$id, documents$text, "en.txt", token.regexp = "\\p{L}[\\p{L}\\p{P}]+\\p{L}")
+mallet.instances <- mallet.import(documents$id, documents$text, "~/finalProject/en.txt", token.regexp = "\\p{L}[\\p{L}\\p{P}]+\\p{L}")
+num.topics <- 20
+topic.model <- MalletLDA(num.topics)
+topic.model$loadDocuments(mallet.instances)
+vocabulary <- topic.model$getVocabulary()
+word.freqs <- mallet.word.freqs(topic.model)
+head(word.freqs)
+write.csv(word.freqs, "COUNTRY-freqs.csv" )
+
+
+----import in to open refine and clean up files----
+--load into word map
